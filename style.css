@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  --background: linear-gradient(
+    hsl(230, 75%, 98%) 0%,
+    #f8f9fe 30%,
+    white 30%,
+    white 100%
+  );
+  --card-color: #f0f3fc;
+  --card-hover-color: #e1e3f0;
+  --small-text-color: #70727f;
+  --main-head-count: black;
+  --ball-color: white;
+}
+html[data-value="dark-theme"] {
+  --background: linear-gradient(
+    #20222f 0%,
+    #20222f 30%,
+    #1d2029 30%,
+    #1d2029 100%
+  );
+  --card-color: #262a45;
+  --card-hover-color: #333a56;
+  --main-head-count: white;
+  --ball-color: #292943;
+}
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: ease-in-out 300ms !important;
+  transition-delay: 0 !important;
+}
+body {
+  /* height: 100vh; */
+  display: flex;
+  /* justify-content: center; */
+  background: var(--background);
+  font-family: "Poppins", sans-serif;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.title h1 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--main-head-count);
+}
+
+.header,
+.toggle {
+  display: flex;
+  justify-content: space-between;
+}
+.toggle p {
+  padding-right: 1em;
+}
+.header p {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--small-text-color);
+}
+.container {
+  width: 100%;
+  padding: 10rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+label {
+  display: inline-block;
+  width: 43px;
+  height: 23px;
+  background: linear-gradient(to right, lightgreen 0%, rgb(121, 193, 218) 100%);
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  padding-left: 0.1em;
+  cursor: pointer;
+}
+.ball {
+  width: 19px;
+  height: 19px;
+  background-color: var(--ball-color);
+  border-radius: 100px;
+  transform: translateX(0);
+  transition: transform 0.2s linear;
+}
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"]:checked ~ label .ball {
+  transform: translateX(20px);
+}
+.profile-cards,
+.page-view-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.profile,
+.page-view-card {
+  min-width: 150px;
+  margin-top: 2rem;
+  text-align: center;
+  background-color: var(--card-color);
+  flex: 0 0 23%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.profile:hover,
+.page-view-card:hover {
+  background-color: var(--card-hover-color);
+  width: 100%;
+}
+.top-line {
+  margin: 0 auto;
+  background-color: #1d8ee4;
+  width: 98%;
+  height: 3px;
+  border-radius: 30px 30px 0px 0px;
+}
+.profile:nth-child(3) .top-line {
+  background: linear-gradient(to right, orange 0%, rgb(238, 63, 209) 100%);
+}
+.profile:nth-child(4) .top-line {
+  background: #bf062f;
+}
+.user-name,
+.followers,
+.footer,
+.top-line {
+  margin-bottom: 1.8em;
+}
+.user-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--small-text-color);
+  font-weight: 600;
+}
+.profile-cards h1 {
+  font-size: 3rem;
+  margin: 0px;
+  line-height: 45px;
+  color: var(--main-head-count);
+}
+.user-name p,
+.footer p {
+  padding-left: 0.4em;
+}
+.followers {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--small-text-color);
+}
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4fa290;
+  font-size: 0.9rem;
+}
+.footer-red {
+  color: #bf062f;
+}
+.title2 {
+  margin-top: 2em;
+  color: var(--small-text-color);
+}
+.page-view,
+.page-view-count {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5em 2em;
+  align-items: center;
+  color: var(--small-text-color);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.page-view-count p:nth-child(1) {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--main-head-count);
+}
+.count-percent {
+  height: 100%;
+  margin-bottom: 0;
+  font-size: 0.8rem;
+}
+@media (max-width: 1200px) {
+  .container {
+    padding: 3rem;
+  }
+}
+@media (max-width: 1023px) {
+  .container {
+    padding: 4rem;
+  }
+  .title h1 {
+    font-size: 1.2rem;
+  }
+  .user-name p,
+  .followers,
+  .page-view,
+  .footer {
+    font-size: 0.7rem;
+  }
+
+  .profile,
+  .page-view-card {
+    flex: 0 0 48%;
+    min-width: 130px;
+  }
+  .profile-cards h1 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 475px) {
+  .container {
+    padding: 2rem;
+  }
+
+  .profile,
+  .page-view-card {
+    min-width: 150px;
+    flex: 1 0 100%;
+  }
+  .header {
+    flex-direction: column;
+  }
+  .title h1 {
+    font-size: 1.2rem;
+  }
+  .toggle {
+    margin-top: 1em;
+  }
+}
